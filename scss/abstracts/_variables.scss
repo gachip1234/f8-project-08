@@ -1,0 +1,20 @@
+$columns: 12 !default;
+$gutter: 20px !default;
+
+// Sắp xếp từ LỚN đến NHỎ cho Desktop-first
+$breakpoints: (
+  "xxl": 1400px,
+  "xl": 1200px,
+  "lg": 992px,
+  "md": 768px,
+  "sm": 576px,
+) !default;
+
+// Sắp xếp tương ứng để vòng lặp @each tạo ra các max-width đúng thứ tự
+$container-max-widths: (
+  "xxl": 1360px,
+  "xl": 1140px,
+  "lg": 960px,
+  "md": 720px,
+  "sm": 540px,
+) !default;

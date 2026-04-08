@@ -1,0 +1,137 @@
+@use "../abstracts";
+
+%lgTablet {
+  @include abstracts.respond-to("lg") {
+    display: none;
+  }
+}
+
+%centerFlex {
+  display: flex;
+  align-items: center;
+}
+.header {
+  background: var(--header-bg);
+}
+
+.top-bar {
+  @extend %centerFlex;
+  padding: 30px 0;
+  position: relative;
+  @include abstracts.respond-to("lg") {
+    padding: 16px;
+  }
+  &__more {
+    display: none;
+    @include abstracts.respond-to("lg") {
+      max-width: 24px;
+      height: 24px;
+      display: flex;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.navbar {
+  margin-left: 144px;
+  margin-right: auto;
+  @include abstracts.hide-below("lg");
+  @include abstracts.respond-to("xl") {
+    margin-left: 50px;
+  }
+  &__list {
+    @extend %centerFlex;
+  }
+  &__item {
+    &:first-child a {
+      padding-left: 0;
+    }
+    &:last-child a {
+      padding-right: 0;
+    }
+    &:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+    gap: 6px;
+  }
+  &__arrow {
+    padding: 2px;
+    margin-top: 3px;
+    width: 12px;
+    height: 12px;
+    @extend %centerFlex;
+    align-self: center;
+  }
+}
+
+.top-act {
+  margin-left: auto;
+  @extend %centerFlex;
+  gap: 20px;
+
+  &__group {
+    &--search {
+      @include abstracts.hide-below("lg");
+    }
+    @extend %centerFlex;
+    min-width: 50px;
+    height: 50px;
+    padding: 13px;
+    background: var(--bg-group);
+    border-radius: 8px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px 10px var(--header-top-act-shadow);
+    &:nth-child(2) {
+      padding: 13px 20px;
+      @include abstracts.hide-below("md");
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+  &__separate {
+    width: 1px;
+    height: 30px;
+    background: var(--header-separate);
+    margin: 0 20px;
+  }
+  &__btn {
+    @extend %centerFlex;
+    gap: 10px;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+  &__user {
+    width: 50px;
+    height: 50px;
+    background: var(--header-user-bg);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  &__avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}

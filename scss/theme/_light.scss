@@ -1,0 +1,15 @@
+html {
+  // base variables mode light
+  --text-color: #1a162e;
+  --bg-main: #f6f6f6;
+  --bg-group: #fff;
+  --icon-color: brightness(0) saturate(100%) invert(7%) sepia(35%)
+    saturate(2031%) hue-rotate(222deg) brightness(90%) contrast(94%);
+  --header-bg: #eee;
+  --header-top-act-shadow: rgba(237, 237, 246, 0.2);
+  --header-separate: #ededf6;
+  --header-user-bg: #dfd2fa;
+  // dropdown variables
+  --dropdown-bg-color: #fff;
+  --dropdown-box-shadow: rgba(200, 200, 200, 0.4);
+}

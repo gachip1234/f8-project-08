@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,9 +21,25 @@
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <!-- Fonts -->
     <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <script src="./assets/js/javascript.js"></script>
   </head>
   <body>
-    <h1>Welcome to Grocery Mart</h1>
-    <p>Your one-stop shop for all your grocery needs!</p>
+    <!-- Header -->
+    <header id="header" class="header">HEADER</header>
+    <script>
+      load("#header", "./template/header.html");
+    </script>
+    <div class="container">
+      <!-- Main -->
+      <h1>Home page</h1>
+
+      <!-- Footer -->
+      <footer id="footer">FOOTER</footer>
+      <script>
+        load("#footer", "./template/footer.html");
+      </script>
+    </div>
   </body>
 </html>

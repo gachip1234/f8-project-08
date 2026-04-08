@@ -18,8 +18,8 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: 400;
-  color: #333;
-  background-color: #fff;
+  color: var(--text-color);
+  background-color: var(--bg-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -39,7 +39,21 @@ a {
 
 button {
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
   border: none;
-  background: none;
+  background: transparent;
   outline: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: inherit;
+}
+
+.icon {
+  filter: var(--icon-color);
 }

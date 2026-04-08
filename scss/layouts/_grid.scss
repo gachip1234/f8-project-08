@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
+// Container
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: calc(vars.$gutter / 2);
+  max-width: map.get(vars.$container-max-widths, "xxl");
+  @each $name, $width in vars.$container-max-widths {
+    @if $name != "xxl" {
+      @include mix.respond-to($name) {
+        max-width: $width;
+      }
+    }
+  }
+}
+
+// Row
+.row {
+  display: grid;
+  grid-template-columns: repeat(vars.$columns, 1fr);
+  column-gap: vars.$gutter;
+  row-gap: vars.$gutter;
+}
+
+// Grid Generator Function
+@mixin make-grid($suffix: "") {
+  $modifier: "";
+  @if $suffix != "" {
+    $modifier: "-#{$suffix}";
+  }
+
+  @for $i from 1 through vars.$columns {
+    .col#{$modifier}-#{$i} {
+      grid-column: span $i;
+    }
+
+    .offset#{$modifier}-#{$i} {
+      grid-column-start: #{$i + 1};
+    }
+
+    // Bổ sung offset-0 để reset khi cần ở màn hình nhỏ
+    .offset#{$modifier}-0 {
+      grid-column-start: auto;
+    }
+  }
+}
+
+// 1. Class chung (Từ LỚN đến NHỎ)
+@include make-grid();
+
+// 2. Duyệt qua các breakpoint
+@each $key, $val in vars.$breakpoints {
+  @if $key != "xxl" {
+    // XXL đã là mặc định ở trên
+    @include mix.respond-to($key) {
+      @include make-grid($key);
+    }
+  }
+}
