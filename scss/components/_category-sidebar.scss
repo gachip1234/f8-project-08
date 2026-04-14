@@ -1,0 +1,94 @@
+@use "../abstracts";
+
+.category-sidebar {
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include abstracts.respond-to("md") {
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 0 16px 10px; // Thêm padding 2 bên để không sát mép
+      margin-inline: -16px; // Kéo tràn ra mép container
+      margin-bottom: 20px;
+      width: calc(100% + 32px); // Bù cho margin âm
+      
+      // Hide scrollbar but keep functionality
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px 8px 16px;
+    min-height: 50px;
+    background: var(--bg-group, #fff);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--top-menu-border-color, #eee);
+
+    &:hover {
+      background: var(--bg-group, #fff);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    &--active {
+      background: #72d5d9 !important;
+      border-color: #5abcb0 !important;
+      box-shadow: 0 8px 15px rgba(114, 213, 217, 0.3);
+      transform: none !important;
+
+      .category-sidebar__title {
+        color: #fff !important;
+      }
+    }
+
+    @include abstracts.respond-to("md") {
+      min-width: 120px;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+
+  &__thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+
+    .dark & {
+      mix-blend-mode: normal;
+    }
+
+    @include abstracts.respond-to("md") {
+        width: 30px;
+        height: 30px;
+    }
+  }
+}

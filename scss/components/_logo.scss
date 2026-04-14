@@ -4,7 +4,11 @@
   align-items: center;
   gap: 14px;
   @include abstracts.respond-to("lg") {
-    margin: 0 39px;
+    margin: 0 20px;
+    gap: 8px;
+  }
+  @include abstracts.respond-to("md") {
+    margin: 0 10px;
   }
   &__img {
     width: 32px;
@@ -20,6 +24,9 @@
     line-height: 1.45;
     @include abstracts.respond-to("lg") {
       font-size: 1.8rem;
+    }
+    @include abstracts.respond-to("md") {
+      font-size: 1.6rem;
     }
   }
 }

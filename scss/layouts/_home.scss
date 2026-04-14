@@ -1,0 +1,63 @@
+@use "../abstracts";
+
+.home {
+  padding-top: 30px;
+
+  &__row {
+    display: flex;
+    gap: 30px;
+
+    @include abstracts.respond-to("md") {
+      flex-direction: column;
+    }
+  }
+
+  &__sidebar {
+    width: 215px;
+    display: none; // Hidden by default
+
+    @include abstracts.respond-to("md") {
+      width: 100%;
+    }
+  }
+
+  &__main-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // Show sidebar mode
+  &--show-sidebar {
+    .home__sidebar {
+      display: block;
+    }
+
+    .js-browse-categories {
+      display: none;
+    }
+
+    @media (min-width: 992px) {
+      .row-cols-5 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+.home__section {
+  margin-top: 30px;
+}
+
+.home__heading-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.home__heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.41;
+  color: var(--text-color);
+}

@@ -79,6 +79,12 @@
   margin-left: auto;
   @extend %centerFlex;
   gap: 20px;
+  @include abstracts.respond-to("lg") {
+    gap: 12px;
+  }
+  @include abstracts.respond-to("md") {
+    gap: 8px;
+  }
 
   &__group {
     &--search {
@@ -94,7 +100,24 @@
     box-shadow: 0 20px 60px 10px var(--header-top-act-shadow);
     &:nth-child(2) {
       padding: 13px 20px;
-      @include abstracts.hide-below("md");
+      @include abstracts.respond-to("md") {
+        padding: 13px;
+      }
+    }
+    @include abstracts.respond-to("md") {
+      min-width: 40px;
+      height: 40px;
+      padding: 8px;
+    }
+    
+    // Hide Health icon and separate on small screens
+    &:has(.top-act__separate) {
+      .top-act__btn:first-child,
+      .top-act__separate {
+        @include abstracts.respond-to("md") {
+          display: none;
+        }
+      }
     }
   }
 
@@ -106,12 +129,18 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 146.667%;
+    @include abstracts.respond-to("md") {
+      display: none;
+    }
   }
   &__separate {
     width: 1px;
     height: 30px;
     background: var(--header-separate);
     margin: 0 20px;
+    @include abstracts.respond-to("lg") {
+      margin: 0 10px;
+    }
   }
   &__btn {
     @extend %centerFlex;

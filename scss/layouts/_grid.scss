@@ -60,3 +60,44 @@
     }
   }
 }
+
+// 3. Row columns helpers
+@for $i from 1 through 6 {
+  .row-cols-#{$i} > * {
+    grid-column: span 1 !important;
+  }
+}
+
+.row-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.row-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.row-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.row-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+// Breakpoint-specific row-cols
+@each $key, $val in vars.$breakpoints {
+  @include mix.respond-to($key) {
+    @for $i from 1 through 6 {
+      .row-cols-#{$key}-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+      .row-cols-#{$key}-#{$i} > * {
+        grid-column: span 1 !important;
+      }
+    }
+  }
+}

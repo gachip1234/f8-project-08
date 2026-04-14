@@ -9,7 +9,20 @@ html {
   --header-top-act-shadow: rgba(237, 237, 246, 0.2);
   --header-separate: #ededf6;
   --header-user-bg: #dfd2fa;
+  
+  // Elements
+  --item-bg: #fff;
+  --product-img-bg: transparent;
+  --cate-img-bg: transparent;
+  --product-blend-mode: normal;
+  --cate-blend-mode: normal;
+  --filter-bg: #fff;
+  --like-btn-bg: #fff;
+  --like-btn-liked-bg: #ffedea;
+
   // dropdown variables
   --dropdown-bg-color: #fff;
   --dropdown-box-shadow: rgba(200, 200, 200, 0.4);
+  --top-menu-border-color: #d2d1d6;
+  --link-hover-color: #0071dc;
 }

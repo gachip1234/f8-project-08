@@ -1,15 +1,31 @@
 html.dark {
   --text-color: #fff;
-  --bg-group: #292e39;
+  --bg-main: #292e39; 
+  --bg-group: #292e39; // Action btns 
   --icon-color: brightness(0) saturate(100%) invert(100%) sepia(8%)
     saturate(1675%) hue-rotate(306deg) brightness(123%) contrast(94%);
-  --header-bg: #171c28;
+  --header-bg: #171c28; 
   --header-top-act-shadow: rgba(0, 0, 0, 0.2);
   --header-separate: #ededf6;
   --header-user-bg: #dfd2fa;
+  
+  // Elements
+  --item-bg: #171c28; // Cards
+  --product-img-bg: transparent; // Float transparent PNGs effortlessly
+  --cate-img-bg: transparent; // Inset deeper box
+  --filter-bg: #171c28; // Filter button
+  --product-blend-mode: normal;
+  --cate-blend-mode: normal;
+  --like-btn-bg: #292e39; // Matches wrapper but elevates via shadow
+  --like-btn-liked-bg: #292e39;
+  --like-btn-shadow: rgba(0, 0, 0, 0.4); // Creates depth on dark surfaces
+
+
+
   // dropdown variables
   --dropdown-bg-color: #292e39;
   --dropdown-box-shadow: rgba(23, 28, 40, 0.4);
   --dropdown-arrow-filter: brightness(0) saturate(100%) invert(14%) sepia(39%)
     saturate(338%) hue-rotate(182deg) brightness(95%) contrast(89%);
+  --top-menu-border-color: #171c28;
 }

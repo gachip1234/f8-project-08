@@ -1,0 +1,58 @@
+@use "../abstracts";
+
+.cate-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--item-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0px 20px 60px rgba(24, 24, 24, 0.05); /* Lấy theo design chung F8 */
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0px 20px 60px rgba(24, 24, 24, 0.1);
+  }
+}
+
+.cate-item__thumb {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background: var(--cate-img-bg, #f8f8fb);
+  border-radius: 8px;
+  padding: 10px;
+  mix-blend-mode: var(--cate-blend-mode, multiply);
+}
+
+.cate-item__info {
+  flex: 1;
+}
+
+.cate-item__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 6px;
+}
+
+.cate-item__desc {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #9e9da8; /* F8 text-color-light */
+  line-height: 1.4;
+}
+
+@include abstracts.respond-to("sm") {
+  .cate-item {
+    padding: 16px;
+    gap: 16px;
+  }
+  .cate-item__thumb {
+    width: 70px;
+    height: 70px;
+  }
+  .cate-item__title {
+    font-size: 1.8rem;
+  }
+}

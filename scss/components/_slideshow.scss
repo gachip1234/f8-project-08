@@ -1,0 +1,118 @@
+@use "../abstracts";
+
+.slideshow {
+  position: relative;
+}
+
+.slideshow__link {
+  display: block;
+  width: 100%;
+}
+
+
+.slideshow__inner {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.slideshow__bg {
+  position: relative;
+  height: 400px;
+  background: #77DAE6;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.slideshow__content {
+  flex: 1;
+}
+
+.slideshow__title {
+  color: #fff;
+  font-size: 4.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.slideshow__img {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  max-width: 50%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  mix-blend-mode: multiply; /* Removes white background for generated image */
+}
+
+.slideshow__page {
+  position: absolute;
+  bottom: 30px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slideshow__num {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.slideshow__slider {
+  width: 100px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+  }
+}
+
+// Responsive
+@include abstracts.respond-to("md") {
+  .slideshow__bg {
+    height: 300px;
+    padding: 0 40px;
+  }
+  .slideshow__title {
+    font-size: 3.2rem;
+  }
+}
+
+@include abstracts.respond-to("sm") {
+  .slideshow__bg {
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    height: auto;
+    min-height: 250px;
+  }
+  .slideshow__title {
+    font-size: 2.4rem;
+  }
+  .slideshow__img {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+  }
+  .slideshow__page {
+    bottom: 20px;
+    left: 30px;
+  }
+}
